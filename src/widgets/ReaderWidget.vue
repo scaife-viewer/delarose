@@ -4,6 +4,7 @@
 
 <script>
 import Reader from '../reader/components/Reader.vue';
+
 export default {
   scaifeConfig: {
     displayName: 'Reader',

@@ -5,12 +5,10 @@
   </div>
 </template>
 <script>
-  import ReaderLineToken from './ReaderLineToken.vue';
 
-  export default {
-    components: { ReaderLineToken },
-    props: ['lineRef', 'text', 'side', 'otherSide'],
-  };
+export default {
+  props: ['lineRef', 'text', 'side', 'otherSide'],
+};
 </script>
 
 <style lang="scss">

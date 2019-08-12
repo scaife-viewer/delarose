@@ -1,7 +1,18 @@
 <template>
   <div class="parallel-line">
-    <ReaderLine :line-ref="leftLine[0]" :text="leftLine[1]" side="left" @hover="onHover" :other-side="hoverStates.right" />
-    <ReaderLine :line-ref="rightLine[0]" :text="rightLine[1]" side="right" @hover="onHover" :other-side="hoverStates.left" />
+    <ReaderLine
+      :line-ref="leftLine[0]"
+      :text="leftLine[1]"
+      side="left" @hover="onHover"
+      :other-side="hoverStates.right"
+    />
+    <ReaderLine
+      :line-ref="rightLine[0]"
+      :text="rightLine[1]"
+      side="right"
+      @hover="onHover"
+      :other-side="hoverStates.left"
+    />
   </div>
 </template>
 
@@ -21,8 +32,8 @@ export default {
       hoverStates: {
         left: [],
         right: [],
-      }
-    }
+      },
+    };
   },
   methods: {
     onHover(side, lineIndex, tokenIndex) {
@@ -31,8 +42,8 @@ export default {
         right: [],
       };
       this.hoverStates[side] = [lineIndex, tokenIndex];
-    }
-  }
+    },
+  },
 };
 </script>
 

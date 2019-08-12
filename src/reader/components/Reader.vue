@@ -2,7 +2,7 @@
   <div class="reader" :class="['text', `text-${textSize}`, `text-width-${textWidth}`]">
     <ReaderLine
       v-for="line in passageText"
-      :key="`${index}`"
+      v-bind:key="line.idx"
       :line-ref="line.milestoneNumber"
       :text="line.textContent"
     />
