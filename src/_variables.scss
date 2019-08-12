@@ -1,0 +1,40 @@
+@import url('http://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700');
+
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #868e96;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+$font-family: 'Gentium Book Basic';
+
+
+$case-n: hsl(0, 100%, 30%);
+$case-g: hsl(90, 50%, 40%);
+$case-d: hsl(180, 50%, 40%);
+$case-a: hsl(48, 100%, 40%);
+$mood-i: hsl(240, 100%, 30%);
+$mood-p: hsl(240, 100%, 60%);
+$mood-n: hsl(120, 33%, 40%);
+$pos-c: hsl(240, 33%, 40%);
+$pos-v: hsl(0, 100%, 60%);
+$pos-p: hsl(120, 100, 40);
+$pos-d: hsl(51, 100, 60);
+
+$case-n-2: hsl(0, 100%, 50%);
+$case-g-2: hsl(90, 50%, 70%);
+$case-d-2: hsl(180, 50%, 70%);
+$case-a-2: hsl(48, 100%, 60%);
+$mood-i-2: hsl(240, 100%, 50%);
+$mood-p-2: hsl(240, 100%, 90%);
+$mood-n-2: hsl(120, 33%, 80%);
+$pos-c-2: hsl(240, 33%, 80%);
+$pos-v-2: hsl(0, 100%, 90%);
+$pos-p-2: hsl(120, 100, 90);
+$pos-d-2: hsl(51, 100, 90);
