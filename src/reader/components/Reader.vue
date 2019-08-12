@@ -1,10 +1,10 @@
 <template>
   <div class="reader" :class="['text', `text-${textSize}`, `text-width-${textWidth}`]">
     <ReaderLine
-      v-for="(line, index) in passageText"
+      v-for="line in passageText"
       :key="`${index}`"
-      :line-ref="index"
-      :text="line"
+      :line-ref="line.milestoneNumber"
+      :text="line.textContent"
     />
   </div>
 </template>
