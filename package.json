@@ -9,8 +9,11 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "apollo-boost": "^0.4.4",
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
+    "graphql": "^14.4.2",
+    "graphql-tag": "^2.10.1",
     "scaife-skeleton": "^0.6.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
