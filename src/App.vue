@@ -9,6 +9,9 @@
 </template>
 
 <script>
+import TextSizeWidget from './reader/widgets/TextSizeWidget.vue';
+import TextWidthWidget from './reader/widgets/TextWidthWidget.vue';
+
 export default {
   name: 'app',
   computed: {
@@ -21,6 +24,8 @@ export default {
     },
     rightWidgets() {
       return [
+        TextSizeWidget,
+        TextWidthWidget,
       ];
     },
   },
