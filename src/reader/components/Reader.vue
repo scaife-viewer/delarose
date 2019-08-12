@@ -2,9 +2,9 @@
   <div class="reader" :class="['text', `text-${textSize}`, `text-width-${textWidth}`]">
     <ReaderLine
       v-for="(line, index) in passageText"
-      :key="`${index}-${line.citation}`"
-      :line-ref="line.citation"
-      :text="line.items[0].content"
+      :key="`${index}`"
+      :line-ref="index"
+      :text="line"
     />
   </div>
 </template>

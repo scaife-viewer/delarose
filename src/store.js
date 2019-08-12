@@ -1,12 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { createStore } from 'scaife-skeleton';
+import { createStore as createSkeletonStore } from 'scaife-skeleton';
 import readerCreateStore from './reader/config';
+import createStore from './config';
 
 Vue.use(Vuex);
 
-const skeletonStore = createStore();
+const skeletonStore = createSkeletonStore();
 const readerStore = readerCreateStore();
 
 export default new Vuex.Store({
@@ -14,4 +15,5 @@ export default new Vuex.Store({
     [readerStore.namespace]: readerStore.store,
     [skeletonStore.namespace]: skeletonStore.store,
   },
+  ...createStore(),
 });
