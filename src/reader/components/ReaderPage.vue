@@ -16,7 +16,7 @@ import ReaderColumn from './ReaderColumn.vue';
 
 export default {
   props: ['page'],
-  components: {ReaderColumn}
+  components: { ReaderColumn },
 };
 </script>
 

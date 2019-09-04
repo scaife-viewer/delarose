@@ -17,7 +17,7 @@ import ReaderLine from './ReaderLine.vue';
 
 export default {
   props: ['lineGroup'],
-  components: {ReaderLine}
+  components: { ReaderLine },
 
 };
 </script>

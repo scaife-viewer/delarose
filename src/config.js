@@ -65,7 +65,10 @@ export default function createStore() {
             }
           `,
         })
-          .then(data => commit(FETCH_TEXT, data.data.versions.edges[0].node.pages.edges.map(e => e.node)));
+          .then(data => commit(
+            FETCH_TEXT,
+            data.data.versions.edges[0].node.pages.edges.map(e => e.node),
+          ));
       },
     },
   };

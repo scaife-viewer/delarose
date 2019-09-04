@@ -15,7 +15,7 @@ import ReaderLineGroup from './ReaderLineGroup.vue';
 
 export default {
   props: ['column'],
-  components: {ReaderLineGroup}
+  components: { ReaderLineGroup },
 };
 </script>
 
