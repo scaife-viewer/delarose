@@ -1,21 +1,13 @@
-import axios from 'axios';
-
+import ApolloClient from 'apollo-boost';
+import gql from 'graphql-tag';
 import {
   FETCH_TEXT,
 } from './constants';
 
-const fetchText = `
-    {
-      lines {
-        edges {
-          node {
-            idx
-            milestoneNumber
-            textContent
-          }
-        }
-      }
-    }`;
+const client = new ApolloClient({
+  uri: 'https://delarose-atlas.herokuapp.com/graphql/',
+});
+
 
 export default function createStore() {
   return {
@@ -27,9 +19,22 @@ export default function createStore() {
     },
     actions: {
       [FETCH_TEXT]: ({ commit }) => {
-        axios.get('https://delarose-atlas.herokuapp.com/graphql/', { params: { query: fetchText } }).then((r) => {
-          commit(FETCH_TEXT, r.data.data.lines.edges.map(e => e.node));
-        });
+        client.query({
+          query: gql`
+          {
+            lines {
+              edges {
+                node {
+                  idx
+                  milestoneNumber
+                  textContent
+                }
+              }
+            }
+          }
+          `,
+        })
+          .then(data => commit(FETCH_TEXT, data.data.lines.edges.map(e => e.node)));
       },
     },
   };
