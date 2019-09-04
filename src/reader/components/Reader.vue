@@ -1,20 +1,19 @@
 <template>
   <div class="reader" :class="['text', `text-${textSize}`, `text-width-${textWidth}`]">
-    <ReaderLine
-      v-for="line in passageText"
-      v-bind:key="line.idx"
-      :line-ref="line.milestoneNumber"
-      :text="line.textContent"
+    <ReaderPage
+      v-for="page in passageText"
+      v-bind:key="page.idx"
+      :page="page"
     />
   </div>
 </template>
 
 <script>
-import ReaderLine from './ReaderLine.vue';
+import ReaderPage from './ReaderPage.vue';
 
 export default {
   props: ['passage-text'],
-  components: { ReaderLine },
+  components: { ReaderPage },
   computed: {
     textSize() {
       return this.$store.state.scaifeReader.textSize;

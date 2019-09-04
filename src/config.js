@@ -21,20 +21,51 @@ export default function createStore() {
       [FETCH_TEXT]: ({ commit }) => {
         client.query({
           query: gql`
-          {
-            lines {
-              edges {
-                node {
-                  idx
-                  milestoneNumber
-                  textContent
+            {
+              versions (first: 1) {
+                edges {
+                  node {
+                    pages (first: 1) {
+                      edges {
+                        node {
+                          identifier
+                          idx
+                          columns {
+                            edges {
+                              node {
+                                id
+                                idx
+                                identifier
+                                lineGroups {
+                                  edges {
+                                    node {
+                                      position
+                                      kind
+                                      lines {
+                                        edges {
+                                          node {
+                                            position
+                                            htmlContent
+                                            milestoneNumber
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
-          }
           `,
         })
-          .then(data => commit(FETCH_TEXT, data.data.lines.edges.map(e => e.node)));
+          .then(data => commit(FETCH_TEXT, data.data.versions.edges[0].node.pages.edges.map(e => e.node)));
       },
     },
   };
