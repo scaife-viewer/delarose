@@ -29,7 +29,7 @@ export default {
     margin-left: 5px;
     .column-ref {
       margin-right: 10px;
-      font-size: 0.5rem;
+      font-size: 0.5em;
     }
   }
 </style>

@@ -25,7 +25,7 @@ export default {
     display: block;
     .page-ref {
       margin-right: 10px;
-      font-size: 0.5rem;
+      font-size: 0.5em;
     }
     .columns {
       display: flex;

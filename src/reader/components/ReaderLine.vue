@@ -14,7 +14,7 @@ export default {
 <style lang="scss">
   .line:nth-child(even) {
     .line-html {
-      margin-left: 0.5rem;
+      margin-left: 0.5em;
     }
   }
   .line {
@@ -26,10 +26,10 @@ export default {
       flex: 1;
     }
     .hi-rend-rubric {
-      font-size: 1.6rem;
+      font-size: 1.6em;
     }
     .hi-rend-init {
-      font-size: 1.4rem;
+      font-size: 1.4em;
     }
   }
 </style>

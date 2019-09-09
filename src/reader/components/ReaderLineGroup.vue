@@ -29,7 +29,7 @@ export default {
     .line-group-ref, .line-group-kind {
       float: left;
       margin-right: 10px;
-      font-size: 0.5rem;
+      font-size: 0.5em;
     }
     .line-group-text {
       flex: 1;
