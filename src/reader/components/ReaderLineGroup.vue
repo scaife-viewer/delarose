@@ -25,11 +25,13 @@ export default {
 <style lang="scss">
   .line-group {
     display: block;
-    margin-left: 3px;
+    margin-left: 0.1875em;
+    margin-top: 0.125em;
     .line-group-ref, .line-group-kind {
       float: left;
-      margin-right: 10px;
+      margin-right: 1.25em;
       font-size: 0.5em;
+      margin-top: 0.125em;
     }
     .line-group-text {
       flex: 1;
