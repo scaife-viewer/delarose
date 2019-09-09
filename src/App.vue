@@ -10,6 +10,7 @@
 
 <script>
 import { FETCH_TEXT } from './constants';
+import ImageAnnotationWidget from './reader/widgets/ImageAnnotationWidget.vue';
 import TextSizeWidget from './reader/widgets/TextSizeWidget.vue';
 import TextWidthWidget from './reader/widgets/TextWidthWidget.vue';
 import ReaderWidget from './widgets/ReaderWidget.vue';
@@ -28,6 +29,7 @@ export default {
       return [
         TextSizeWidget,
         TextWidthWidget,
+        ImageAnnotationWidget,
       ];
     },
   },
