@@ -29,6 +29,7 @@ export default {
   .text {
     font-family: 'Noto Serif';
     margin: 0.5em 0.5em 1em;
+    line-height: 1.5;
 
     .line {
       .line-ref {
@@ -38,26 +39,6 @@ export default {
       }
       .line-text {
       }
-    }
-
-    &.text-xs {
-      line-height: 1.5;
-    }
-
-    &.text-sm {
-      line-height: 1.6;
-    }
-
-    &.text-md {
-      line-height: 1.7;
-    }
-
-    &.text-lg {
-      line-height: 1.8;
-    }
-
-    &.text-xl {
-      line-height: 1.9;
     }
   }
 
