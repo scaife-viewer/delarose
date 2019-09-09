@@ -13,9 +13,9 @@ export default {
   },
   computed: {
     reference() {
-      // @@@ return based on page
-      // return this.$store.state.scaifeReader.selectedImageAnnotationReference;
-      return '001r';
+      if (this.$route.query.urn) {
+        return this.$route.query.urn.split(':').slice(-1)[0];
+      }
     },
     url() {
       // return this.$store.state.scaifeReader.selectedImageAnnotationUrl;
