@@ -83,14 +83,14 @@ export default {
   }
 
   .text-width-normal {
-    max-width: 700px;
+    max-width: 900px;
   }
 
   .text-width-narrow {
-    max-width: 500px;
+    max-width: 700px;
   }
 
   .text-width-wide {
-    max-width: 900px;
+    max-width: 1200px;
   }
 </style>

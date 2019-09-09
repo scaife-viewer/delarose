@@ -41,5 +41,8 @@ export default {
   @import './variables.scss';
   body {
     font-family: $font-family;
+    .sidebar-wrapper.left {
+      display: none;
+    }
   }
 </style>
