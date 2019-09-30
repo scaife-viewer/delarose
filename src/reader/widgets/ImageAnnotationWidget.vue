@@ -17,7 +17,7 @@ export default {
     },
     url() {
       // return this.$store.state.scaifeReader.selectedImageAnnotationUrl;
-      return `https://image.library.jhu.edu/iiif/rose/SeldenSupra57/SeldenSupra57`;
+      return 'https://image.library.jhu.edu/iiif/rose/SeldenSupra57/SeldenSupra57';
     },
     apiLink() {
       return this.url && this.reference && `${this.url}.${this.reference}`;
