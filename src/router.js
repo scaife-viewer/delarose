@@ -6,7 +6,7 @@ import App from './App.vue';
 Vue.use(Router);
 
 const routes = [
-  { path: '', component: App, name: 'app' },
+  { path: '/reader', component: App, name: 'reader' },
 ];
 
 const router = new Router({

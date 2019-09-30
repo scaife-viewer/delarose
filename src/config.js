@@ -18,14 +18,14 @@ export default function createStore() {
       [FETCH_TEXT]: (state, lines) => { state.passageText = lines; },
     },
     actions: {
-      [FETCH_TEXT]: ({ commit }) => {
+      [FETCH_TEXT]: ({ commit }, { pageIdentifier }) => {
         client.query({
           query: gql`
             {
               versions (first: 1) {
                 edges {
                   node {
-                    pages (first: 1) {
+                    pages (first: 1, identifier: "${pageIdentifier}") {
                       edges {
                         node {
                           identifier

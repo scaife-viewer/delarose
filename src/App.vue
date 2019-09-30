@@ -32,9 +32,15 @@ export default {
         ImageAnnotationWidget,
       ];
     },
+    reference() {
+      return this.$route.query.urn.split(':').slice(-1)[0];
+    },
   },
   created() {
-    this.$store.dispatch(FETCH_TEXT);
+    if (!this.$route.query.urn) {
+      this.$router.push({ to: 'reader', query: { urn: 'urn:cts:medievalmss:rose.SeldenSupra57:001r' } });
+    }
+    this.$store.dispatch(FETCH_TEXT, { pageIdentifier: this.reference });
   },
 };
 </script>

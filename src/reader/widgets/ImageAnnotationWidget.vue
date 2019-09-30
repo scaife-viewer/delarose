@@ -13,9 +13,7 @@ export default {
   },
   computed: {
     reference() {
-      if (this.$route.query.urn) {
-        return this.$route.query.urn.split(':').slice(-1)[0];
-      }
+      return this.$route.query.urn.split(':').slice(-1)[0];
     },
     url() {
       // return this.$store.state.scaifeReader.selectedImageAnnotationUrl;
