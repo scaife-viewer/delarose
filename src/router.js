@@ -6,6 +6,7 @@ import App from './App.vue';
 Vue.use(Router);
 
 const routes = [
+  { path: '/', redirect: 'reader' },
   { path: '/reader', component: App, name: 'reader' },
 ];
 
