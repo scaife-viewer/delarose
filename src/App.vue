@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { FETCH_TEXT } from './constants';
+import { FETCH_TEXT, FETCH_PAGE_INDEX } from './constants';
 import ImageAnnotationWidget from './reader/widgets/ImageAnnotationWidget.vue';
 import TextSizeWidget from './reader/widgets/TextSizeWidget.vue';
 import TextWidthWidget from './reader/widgets/TextWidthWidget.vue';
@@ -50,6 +50,16 @@ export default {
       versionUrn: this.versionUrn,
       pageIdentifier: this.reference,
     });
+    this.$store.dispatch(FETCH_PAGE_INDEX, { versionUrn: this.versionUrn });
+  },
+  watch: {
+    // eslint-disable-next-line func-names
+    '$route.query.urn': function () {
+      this.$store.dispatch(FETCH_TEXT, {
+        versionUrn: this.versionUrn,
+        pageIdentifier: this.reference,
+      });
+    },
   },
 };
 </script>
