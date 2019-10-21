@@ -30,6 +30,13 @@ export default function createStore() {
                         node {
                           identifier
                           idx
+                          imageAnnotations {
+                            edges {
+                              node {
+                                imageUrl
+                              }
+                            }
+                          }
                           columns {
                             edges {
                               node {

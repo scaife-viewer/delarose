@@ -15,12 +15,10 @@ export default {
     reference() {
       return this.$route.query.urn.split(':').slice(-1)[0];
     },
-    url() {
-      // return this.$store.state.scaifeReader.selectedImageAnnotationUrl;
-      return 'https://image.library.jhu.edu/iiif/rose/SeldenSupra57/SeldenSupra57';
-    },
     apiLink() {
-      return this.url && this.reference && `${this.url}.${this.reference}`;
+      const havePassageText = this.$store.state.passageText.length;
+      // @@@ de-couple from passageText
+      return havePassageText ? this.$store.state.passageText[0].imageAnnotations.edges[0].node.imageUrl : '';
     },
   },
 };
