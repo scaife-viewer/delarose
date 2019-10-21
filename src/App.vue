@@ -52,6 +52,15 @@ export default {
     });
     this.$store.dispatch(FETCH_PAGE_INDEX, { versionUrn: this.versionUrn });
   },
+  watch: {
+    // eslint-disable-next-line func-names
+    '$route.query.urn': function () {
+      this.$store.dispatch(FETCH_TEXT, {
+        versionUrn: this.versionUrn,
+        pageIdentifier: this.reference,
+      });
+    },
+  },
 };
 </script>
 
