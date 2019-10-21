@@ -18,23 +18,58 @@ export default function createStore() {
       [FETCH_TEXT]: (state, lines) => { state.passageText = lines; },
     },
     actions: {
-      [FETCH_TEXT]: ({ commit }) => {
+      [FETCH_TEXT]: ({ commit }, { versionUrn, pageIdentifier }) => {
         client.query({
           query: gql`
-          {
-            lines {
-              edges {
-                node {
-                  idx
-                  milestoneNumber
-                  textContent
+            {
+              pages (version_Urn: "${versionUrn}", identifier: "${pageIdentifier}") {
+                edges {
+                  node {
+                    identifier
+                    idx
+                    imageAnnotations {
+                      edges {
+                        node {
+                          imageUrl
+                        }
+                      }
+                    }
+                    columns {
+                      edges {
+                        node {
+                          id
+                          idx
+                          identifier
+                          lineGroups {
+                            edges {
+                              node {
+                                position
+                                kind
+                                lines {
+                                  edges {
+                                    node {
+                                      position
+                                      htmlContent
+                                      milestoneNumber
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
-          }
           `,
         })
-          .then(data => commit(FETCH_TEXT, data.data.lines.edges.map(e => e.node)));
+          .then(data => commit(
+            FETCH_TEXT,
+            data.data.pages.edges.map(e => e.node),
+          ));
       },
     },
   };

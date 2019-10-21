@@ -1,20 +1,19 @@
 <template>
   <div class="reader" :class="['text', `text-${textSize}`, `text-width-${textWidth}`]">
-    <ReaderLine
-      v-for="line in passageText"
-      v-bind:key="line.idx"
-      :line-ref="line.milestoneNumber"
-      :text="line.textContent"
+    <ReaderPage
+      v-for="page in passageText"
+      v-bind:key="page.idx"
+      :page="page"
     />
   </div>
 </template>
 
 <script>
-import ReaderLine from './ReaderLine.vue';
+import ReaderPage from './ReaderPage.vue';
 
 export default {
   props: ['passage-text'],
-  components: { ReaderLine },
+  components: { ReaderPage },
   computed: {
     textSize() {
       return this.$store.state.scaifeReader.textSize;
@@ -30,6 +29,7 @@ export default {
   .text {
     font-family: 'Noto Serif';
     margin: 0.5em 0.5em 1em;
+    line-height: 1.5;
 
     .line {
       .line-ref {
@@ -39,26 +39,6 @@ export default {
       }
       .line-text {
       }
-    }
-
-    &.text-xs {
-      line-height: 1.5;
-    }
-
-    &.text-sm {
-      line-height: 1.6;
-    }
-
-    &.text-md {
-      line-height: 1.7;
-    }
-
-    &.text-lg {
-      line-height: 1.8;
-    }
-
-    &.text-xl {
-      line-height: 1.9;
     }
   }
 
@@ -84,14 +64,14 @@ export default {
   }
 
   .text-width-normal {
-    max-width: 700px;
+    max-width: 900px;
   }
 
   .text-width-narrow {
-    max-width: 500px;
+    max-width: 700px;
   }
 
   .text-width-wide {
-    max-width: 900px;
+    max-width: 1200px;
   }
 </style>

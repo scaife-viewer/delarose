@@ -10,6 +10,7 @@
 
 <script>
 import { FETCH_TEXT } from './constants';
+import ImageAnnotationWidget from './reader/widgets/ImageAnnotationWidget.vue';
 import TextSizeWidget from './reader/widgets/TextSizeWidget.vue';
 import TextWidthWidget from './reader/widgets/TextWidthWidget.vue';
 import ReaderWidget from './widgets/ReaderWidget.vue';
@@ -28,11 +29,27 @@ export default {
       return [
         TextSizeWidget,
         TextWidthWidget,
+        ImageAnnotationWidget,
       ];
+    },
+    reference() {
+      return this.$route.query.urn.split(':').slice(-1)[0];
+    },
+    versionUrn() {
+      return this.$route.query.urn.split(':').slice(0, -1).join(':');
     },
   },
   created() {
-    this.$store.dispatch(FETCH_TEXT);
+    if (!this.$route.query.urn) {
+      this.$router.push({
+        to: 'reader',
+        query: { urn: 'urn:cts:medievalmss:rose.SeldenSupra57:001r' },
+      });
+    }
+    this.$store.dispatch(FETCH_TEXT, {
+      versionUrn: this.versionUrn,
+      pageIdentifier: this.reference,
+    });
   },
 };
 </script>
@@ -41,5 +58,8 @@ export default {
   @import './variables.scss';
   body {
     font-family: $font-family;
+    .sidebar-wrapper.left {
+      display: none;
+    }
   }
 </style>
