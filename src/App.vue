@@ -35,12 +35,21 @@ export default {
     reference() {
       return this.$route.query.urn.split(':').slice(-1)[0];
     },
+    versionUrn() {
+      return this.$route.query.urn.split(':').slice(0, -1).join(':');
+    },
   },
   created() {
     if (!this.$route.query.urn) {
-      this.$router.push({ to: 'reader', query: { urn: 'urn:cts:medievalmss:rose.SeldenSupra57:001r' } });
+      this.$router.push({
+        to: 'reader',
+        query: { urn: 'urn:cts:medievalmss:rose.SeldenSupra57:001r' },
+      });
     }
-    this.$store.dispatch(FETCH_TEXT, { pageIdentifier: this.reference });
+    this.$store.dispatch(FETCH_TEXT, {
+      versionUrn: this.versionUrn,
+      pageIdentifier: this.reference,
+    });
   },
 };
 </script>

@@ -18,45 +18,39 @@ export default function createStore() {
       [FETCH_TEXT]: (state, lines) => { state.passageText = lines; },
     },
     actions: {
-      [FETCH_TEXT]: ({ commit }, { pageIdentifier }) => {
+      [FETCH_TEXT]: ({ commit }, { versionUrn, pageIdentifier }) => {
         client.query({
           query: gql`
             {
-              versions (first: 1) {
+              pages (version_Urn: "${versionUrn}", identifier: "${pageIdentifier}") {
                 edges {
                   node {
-                    pages (first: 1, identifier: "${pageIdentifier}") {
+                    identifier
+                    idx
+                    imageAnnotations {
                       edges {
                         node {
-                          identifier
+                          imageUrl
+                        }
+                      }
+                    }
+                    columns {
+                      edges {
+                        node {
+                          id
                           idx
-                          imageAnnotations {
+                          identifier
+                          lineGroups {
                             edges {
                               node {
-                                imageUrl
-                              }
-                            }
-                          }
-                          columns {
-                            edges {
-                              node {
-                                id
-                                idx
-                                identifier
-                                lineGroups {
+                                position
+                                kind
+                                lines {
                                   edges {
                                     node {
                                       position
-                                      kind
-                                      lines {
-                                        edges {
-                                          node {
-                                            position
-                                            htmlContent
-                                            milestoneNumber
-                                          }
-                                        }
-                                      }
+                                      htmlContent
+                                      milestoneNumber
                                     }
                                   }
                                 }
@@ -74,7 +68,7 @@ export default function createStore() {
         })
           .then(data => commit(
             FETCH_TEXT,
-            data.data.versions.edges[0].node.pages.edges.map(e => e.node),
+            data.data.pages.edges.map(e => e.node),
           ));
       },
     },
