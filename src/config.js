@@ -33,6 +33,7 @@ export default function createStore() {
                     imageAnnotations {
                       edges {
                         node {
+                          annotationUrl
                           imageUrl
                         }
                       }
