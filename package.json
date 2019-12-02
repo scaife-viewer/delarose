@@ -14,6 +14,7 @@
     "core-js": "^2.6.5",
     "graphql": "^14.4.2",
     "graphql-tag": "^2.10.1",
+    "openseadragon": "^2.4.0",
     "scaife-skeleton": "^0.6.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
