@@ -9,17 +9,19 @@
 </template>
 
 <script>
-import { FETCH_TEXT, FETCH_PAGE_INDEX } from './constants';
+import { FETCH_TEXT, FETCH_PAGE_INDEX, IMAGE_VIEWER_ROUTE } from './constants';
 import ImageAnnotationWidget from './reader/widgets/ImageAnnotationWidget.vue';
 import TextSizeWidget from './reader/widgets/TextSizeWidget.vue';
 import TextWidthWidget from './reader/widgets/TextWidthWidget.vue';
 import ReaderWidget from './widgets/ReaderWidget.vue';
+import ImageWidget from './widgets/ImageWidget.vue';
 
 export default {
   name: 'app',
   computed: {
     mainWidget() {
-      return ReaderWidget;
+      const showImageViewer = this.$route.name === IMAGE_VIEWER_ROUTE;
+      return showImageViewer ? ImageWidget : ReaderWidget;
     },
     leftWidgets() {
       return [
